@@ -193,7 +193,10 @@ public class DamageUtils {
 
 		// Get enchant damage
 		ItemStack stack = attacker.getWeaponStack();
-		float enchantDamage = /*fixme EnchantmentHelper.getDamage(attacker.getWorld() instanceof ServerWorld serverWorld ? serverWorld : null, stack, target, damageSource, itemDamage) - itemDamage*/ 0;
+		float enchantDamage = 0;
+		if ((Object) mc.world instanceof ServerWorld sw) {
+			enchantDamage = EnchantmentHelper.getDamage(sw, stack, target, damageSource, itemDamage) - itemDamage;
+		}
 
 		// Factor charge
 		if (attacker instanceof PlayerEntity playerEntity) {
@@ -265,8 +268,11 @@ public class DamageUtils {
 
 
 	private static float protectionReduction(LivingEntity player, float damage, DamageSource source) {
-		//fixme float protLevel = EnchantmentHelper.getProtectionAmount(player.getWorld() instanceof ServerWorld serverWorld ? serverWorld : null, player, source);
-		return DamageUtil.getInflictedDamage(damage, /*protLevel*/ 0);
+		float protLevel = 0;
+		if ((Object) mc.world instanceof ServerWorld sw) {
+			protLevel = EnchantmentHelper.getProtectionAmount(sw, player, source);
+		}
+		return DamageUtil.getInflictedDamage(damage, protLevel);
 	}
 
 

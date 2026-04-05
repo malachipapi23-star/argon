@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "id": "immediatelyfast",
-  "version": "1.2.11+1.21.11",
-  "name": "ImmediatelyFast",
-  "description": "Speed up and optimize immediate mode rendering in Minecraft",
+  "id": "argon",
+  "version": "${version}",
+  "name": "Argon",
+  "description": "Argon Minecraft Ghost Client",
   "authors": [
-    "RK_01"
+    "lvstrng"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/immediatelyfast",
-    "sources": "https://github.com/RaphiMC/ImmediatelyFast",
-    "issues": "https://github.com/RaphiMC/ImmediatelyFast/issues"
+    "homepage": "https://github.com/lvstrng/Argon",
+    "sources": "https://github.com/lvstrng/Argon",
+    "issues": "https://github.com/lvstrng/Argon/issues"
   },
-  "license": "LGPL-3.0",
-  "icon": "assets/immediatelyfast/icon.png",
+  "license": "All rights reserved",
+  "icon": "assets/argon/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -28,17 +28,10 @@
     "fabric": "*",
     "minecraft": "~1.21.11"
   },
-  "recommends": {
-    "sodium": "*"
-  },
-  "conflicts": {
-    "slight-gui-modifications": "*",
-    "vulkanmod": "*"
-  },
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.discord": "https://discord.gg/dCzT9XHEWu"
+        "modmenu.discord": "https://discord.gg/lvstrng"
       }
     }
   }
