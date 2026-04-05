@@ -5,6 +5,7 @@ import dev.lvstrng.argon.module.setting.ModeSetting;
 import dev.lvstrng.argon.module.setting.Setting;
 import dev.lvstrng.argon.utils.ColorUtils;
 import dev.lvstrng.argon.utils.TextRenderer;
+import dev.lvstrng.argon.utils.Utils;
 import net.minecraft.client.gui.DrawContext;
 import org.lwjgl.glfw.GLFW;
 
@@ -29,7 +30,7 @@ public final class ModeBox extends RenderableSetting {
 
 		int modeOffset = nameOffset;
 
-		TextRenderer.drawString(setting.getMode().name(), context, modeOffset, (parentY() + parentOffset() + offset) + 9, new Color(245, 245, 245, 255).getRGB());
+		TextRenderer.drawString(setting.getMode().name(), context, modeOffset, (parentY() + parentOffset() + offset) + 9, Utils.getMainColor(255, 0).getRGB());
 
 		if (!parent.parent.dragging) {
 			int toHoverAlpha = isHovered(mouseX, mouseY) ? 15 : 0;

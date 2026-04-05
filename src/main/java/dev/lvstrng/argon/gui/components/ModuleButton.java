@@ -75,10 +75,14 @@ public final class ModuleButton {
 
 		if (parent.moduleButtons.get(parent.moduleButtons.size() - 1) != this) {
 			context.fill(parent.getX(), parent.getY() + offset, parent.getX() + parent.getWidth(), parent.getY() + parent.getHeight() + offset, currentColor.getRGB());
-			context.fillGradient(parent.getX(), parent.getY() + offset, parent.getX() + 2, parent.getY() + parent.getHeight() + offset, Utils.getMainColor(255, Argon.INSTANCE.getModuleManager().getModulesInCategory(module.getCategory()).indexOf(module)).getRGB(), Utils.getMainColor(255, Argon.INSTANCE.getModuleManager().getModulesInCategory(module.getCategory()).indexOf(module) + 1).getRGB());
+			if (module.isEnabled()) {
+				context.fill(parent.getX(), parent.getY() + offset, parent.getX() + 2, parent.getY() + parent.getHeight() + offset, Utils.getMainColor(255, 0).getRGB());
+			}
 		} else {
 			RenderUtils.renderRoundedQuad(context, currentColor, parent.getX(), parent.getY() + offset, parent.getX() + parent.getWidth(), parent.getY() + parent.getHeight() + offset, 0, 0, 3, animation.getValue() > 30 ? 0 : ClickGUI.roundQuads.getValueInt(), 50);
-			RenderUtils.renderRoundedQuad(context, Utils.getMainColor(255, Argon.INSTANCE.getModuleManager().getModulesInCategory(module.getCategory()).indexOf(module)), parent.getX(), parent.getY() + offset, parent.getX() + 2, parent.getY() + (parent.getHeight() - 1) + offset, 0, 0, extended ? 0 : 2, 0, 50);
+			if (module.isEnabled()) {
+				RenderUtils.renderRoundedQuad(context, Utils.getMainColor(255, 0), parent.getX(), parent.getY() + offset, parent.getX() + 2, parent.getY() + (parent.getHeight() - 1) + offset, 0, 0, extended ? 0 : 2, 0, 50);
+			}
 		}
 
 		CharSequence nameChars = module.getName();
